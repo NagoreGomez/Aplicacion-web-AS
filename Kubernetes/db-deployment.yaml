@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: db
+  template:
+    metadata:
+      labels:
+        component: db
+    spec: 
+      containers:
+      - name: db
+        image: mysql:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: DBrootNagoreAS
+        - name: MYSQL_DATABASE
+          value: database
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+        - name: init-scripts
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+      - name: init-scripts
+        configMap:
+          name: mysql-init-script
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    component: db
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    component: db
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-init-script
+data:
+  database.sql: |
+    -- Declaraciones sql 
+    CREATE TABLE reservas (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      email VARCHAR(255) NOT NULL,
+      codigo VARCHAR(255) UNIQUE NOT NULL,
+      numPersonas INT NOT NULL,
+      fecha DATE NOT NULL,
+      hora TIME NOT NULL
+    );
+
