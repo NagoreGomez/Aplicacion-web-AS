@@ -1,9 +1,0 @@
-CREATE TABLE reservas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
-    codigo VARCHAR(255) UNIQUE NOT NULL,
-    numPersonas INT NOT NULL,
-    fecha DATE NOT NULL,
-    hora TIME NOT NULL
-);
-

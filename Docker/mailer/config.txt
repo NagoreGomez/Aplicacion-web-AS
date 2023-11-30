@@ -1,2 +1,0 @@
-smtp_username: nagoresegur@gmail.com
-smtp_password: uodc jihh sntc uhks
