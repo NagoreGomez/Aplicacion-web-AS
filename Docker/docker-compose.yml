@@ -1,0 +1,38 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    links:
+      - db
+
+  db:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: DBrootNagoreAS
+      MYSQL_DATABASE: database
+    ports:
+      - "3306:3306"
+
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_ARBITRARY: 1
+    depends_on:
+      - db
+
+  mailer:
+    build: 
+      context: ./mailer
+      dockerfile: Dockerfile
+
+
+
