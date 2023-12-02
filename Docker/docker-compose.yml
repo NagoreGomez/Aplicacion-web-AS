@@ -6,17 +6,18 @@ services:
       - "80:80"
     links:
       - db
+    restart: always
 
   db:
     image: mysql:latest
     restart: always
     volumes:
+      - db_data:/var/lib/mysql
       - ./database.sql:/docker-entrypoint-initdb.d/database.sql
     environment:
       MYSQL_ROOT_PASSWORD: DBrootNagoreAS
       MYSQL_DATABASE: database
-    ports:
-      - "3306:3306"
+
 
   
   phpmyadmin:
@@ -25,14 +26,16 @@ services:
       - 8080:80
     environment:
       PMA_HOST: db
-      PMA_ARBITRARY: 1
     depends_on:
       - db
+    restart: always
 
   mailer:
     build: 
       context: ./mailer
       dockerfile: Dockerfile
+    restart: always
 
-
+volumes:
+  db_data:
 
