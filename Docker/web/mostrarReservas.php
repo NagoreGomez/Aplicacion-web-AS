@@ -74,9 +74,6 @@ $conn->close();
             </a>
             <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a href="consultarReservas.php" class="btn btn-primary ml-xl-4">Consultar reservas</a>
-                </li>
             </ul>
         </div>
     </nav>
