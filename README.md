@@ -4,7 +4,7 @@ Este repositorio contiene el código de la aplicación web desarrollada para la 
 
 En este proyecto, se ha llevado a cabo el desarrollo de una aplicación web, utilizando un entorno **PHP**, con el objetivo de poner en práctica los conocimientos sobre técnicas de gestión y orquestación de contenedores. De esta manera, se ha aprendido a trabajar con herramientas que facilitan la implantación de despliegues software, como son **Docker** y **Kubernetes**, que son dos herramientas muy populares.
 
-La aplicación web desarrollada está diseñada para un restaurante, denominado Cafuné, la función principal es la gestión de reservas. Para el desarrollo se ha hecho uso de una plantilla que integra **HTML 5** y **Bootstrap**. La elección de la misma se ha realizado con la finalidad de crear una interfaz intuitiva y fácil de manejar, con un diseño simple, garantizando una interacción eficiente con todas las funcionalidades de la misma.
+La aplicación web desarrollada está diseñada para un restaurante, denominado Cafuné, la función principal es la gestión de reservas. Para el desarrollo se ha hecho uso de **HTML 5** y **Bootstrap**. El diseño de la misma se ha realizado con la finalidad de crear una interfaz intuitiva y fácil de manejar, con un diseño simple, garantizando una interacción eficiente con todas las funcionalidades de la misma.
 ![p1](https://github.com/user-attachments/assets/3dddcb1c-423e-4673-ac61-68d001a88c06)
 
 Las características o funcionalidades de la aplicación web son las siguientes:
